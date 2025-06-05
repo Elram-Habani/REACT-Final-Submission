@@ -96,3 +96,11 @@ input[type="number"] {
 .logout-button:hover {
   background-color: #a11f1f;
 }
+@media (max-width: 600px) {
+  .logout-button {
+    padding: 4px 8px;
+    font-size: 10px;
+    top: 4px;
+    left: 4px;
+  }
+}

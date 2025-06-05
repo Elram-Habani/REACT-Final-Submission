@@ -9,7 +9,6 @@ export default function UserManagement({ tasks }) {
   const [newName, setNewName] = useState('');
   const [isDeleted, setIsDeleted] = useState(false);
   const [activeSection, setActiveSection] = useState(null);
-  const [theme, setTheme] = useState('light');
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -42,7 +41,7 @@ export default function UserManagement({ tasks }) {
         setName(newName.trim());
         setEditing(false);
       } catch (error) {
-        console.error("שגיאה בשמירת השם החדש:", error);
+        console.error(error);
       }
     }
   };
@@ -53,10 +52,6 @@ export default function UserManagement({ tasks }) {
 
   const completedTasks = tasks?.filter((t) => t.status === 100) || [];
   const lastLogin = new Date().toLocaleString('he-IL');
-
-  useEffect(() => {
-    document.body.classList.toggle('dark-mode', theme === 'dark');
-  }, [theme]);
 
   return (
     <div className="page">
@@ -108,11 +103,8 @@ export default function UserManagement({ tasks }) {
       </section>
 
       <section className="section">
-        <h3>הגדרות כלליות במערכת -</h3>
+        <h3>פרטים</h3>
         <div className="action-row">
-          <button className="pink" onClick={() => setActiveSection(activeSection === 'theme' ? null : 'theme')}>
-            שינוי תצוגה
-          </button>
           <button className="pink" onClick={() => setActiveSection(activeSection === 'system' ? null : 'system')}>
             פרטי המערכת
           </button>
@@ -120,19 +112,6 @@ export default function UserManagement({ tasks }) {
             מעקב כניסות
           </button>
         </div>
-
-        {activeSection === 'theme' && (
-          <div className="theme-options" style={{ marginTop: '10px', padding: '12px', backgroundColor: '#fff8f8', borderRadius: '10px', width: 'fit-content', marginInline: 'auto', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <input type="radio" name="theme" value="light" checked={theme === 'light'} onChange={() => setTheme('light')} />
-              מצב רגיל
-            </label>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <input type="radio" name="theme" value="dark" checked={theme === 'dark'} onChange={() => setTheme('dark')} />
-              מצב כהה
-            </label>
-          </div>
-        )}
 
         {activeSection === 'system' && (
           <div style={{ marginTop: '15px', backgroundColor: '#fdf0f0', padding: '14px', borderRadius: '10px', textAlign: 'center', maxWidth: '80%', marginInline: 'auto' }}>

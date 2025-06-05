@@ -4,12 +4,6 @@ import { Link } from 'react-router-dom';
 
 export default function HelpAndSettings() {
   const [openIndex, setOpenIndex] = useState(null);
-  const [visibility, setVisibility] = useState('private');
-  const [alerts, setAlerts] = useState({
-    reminders: false,
-    updates: false,
-  });
-
   const [userDetails, setUserDetails] = useState({
     fullName: '',
     email: '',
@@ -32,7 +26,7 @@ export default function HelpAndSettings() {
       answer: 'בעמוד ניהול המשימות, לצד כל משימה תופיע אפשרות "ערוך" או "מחק". לחיצה תאפשר לשנות או להסיר את המשימה מהרשימה.',
     },
     {
-      question: 'איך ניתן לעקוב אחרי ההתקדמות שלי?',
+      question: 'כיצד ניתן לעקוב אחרי ההתקדמות שלי?',
       answer: 'ניתן לצפות בלשונית "סטטיסטיקות ומעקב", שם מוצגים גרפים של ההתקדמות הכוללת, סוגי הלמידה המועדפים והמלצות לשיפור.',
     },
     {
@@ -43,10 +37,6 @@ export default function HelpAndSettings() {
 
   const toggleAnswer = (index) => {
     setOpenIndex(index === openIndex ? null : index);
-  };
-
-  const toggleAlert = (key) => {
-    setAlerts({ ...alerts, [key]: !alerts[key] });
   };
 
   const handleInputChange = (e) => {
@@ -125,7 +115,7 @@ export default function HelpAndSettings() {
             {errors.email && <div className="errorMsg">{errors.email}</div>}
           </li>
           <li>
-            סיסמה + אימות
+            סיסמה 
             <input
               type="password"
               name="password"
@@ -139,58 +129,8 @@ export default function HelpAndSettings() {
         </ul>
       </section>
 
-      <section className="section">
-        <h2 className="gray">פרטים</h2>
-        <div className="visibility-options">
-          <span className="dot red" />
-          הצגת לוח זמנים שלי:
-          <label>
-            <input
-              type="radio"
-              name="visibility"
-              value="private"
-              checked={visibility === 'private'}
-              onChange={() => setVisibility('private')}
-            />
-            פרטי
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="visibility"
-              value="public"
-              checked={visibility === 'public'}
-              onChange={() => setVisibility('public')}
-            />
-            ציבורי
-          </label>
-        </div>
-      </section>
-
-      <section className="section">
-        <h2 className="gray">התראות</h2>
-        <div className="alerts-list">
-          <label>
-            <input
-              type="checkbox"
-              checked={alerts.reminders}
-              onChange={() => toggleAlert('reminders')}
-            />
-            🔔 תזכורות למשימות
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              checked={alerts.updates}
-              onChange={() => toggleAlert('updates')}
-            />
-            🔔 עדכונים מקבוצות הלימוד
-          </label>
-        </div>
-      </section>
-
       <div className="bottom-nav">
-        <button className="saveButton" onClick={saveSettings}>💾 שמור שינויים</button>
+        <button className="saveButton" onClick={saveSettings}> שמור שינויים💾</button>
         <Link to="/home">
           <button className="backButton">חזרה לעמוד הבית</button>
         </Link>

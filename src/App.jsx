@@ -7,7 +7,7 @@ import Statistics from './views/pages/Statistics/Statistics';
 import UserManagement from './views/pages/UserManagement/UserManagement';
 import Login from './views/pages/Login/Login';
 import Register from './views/pages/Register/Register';
-import './App.css'; 
+import './App.css';
 
 function LogoutButton() {
   const location = useLocation();
