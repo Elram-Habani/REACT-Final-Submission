@@ -127,7 +127,7 @@ export default function TaskManagement({ tasks, setTasks }) {
             <option value="וידאו">וידאו</option>
             <option value="תרגולים ממבחנים">תרגולים ממבחנים</option>
           </select>
-          <input type="number" placeholder="אומדן התקדמות" value={status} min={0} max={100} onChange={(e) => setStatus(e.target.value)} />
+          <input type="number" placeholder="אומדן" value={status} min={0} max={100} onChange={(e) => setStatus(e.target.value)} />
           <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
           <button className="green" onClick={addTask}>שמור משימה</button>
         </div>
