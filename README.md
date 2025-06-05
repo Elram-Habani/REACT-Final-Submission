@@ -1,12 +1,62 @@
-# React + Vite
+# פרויקט גמר – Student Planner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+מערכת ניהול למידה אינטראקטיבית עבור סטודנטים, המאפשרת תכנון, ניהול ומעקב אחר משימות לימודיות לפי נושא, שיטת למידה, תאריך יעד ואחוז התקדמות.  
+הפרויקט פותח במסגרת קורס Front-End והוגש כפרויקט מסכם.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## תיאור כללי של המוצר (משימה 1)
 
-## Expanding the ESLint configuration
+המערכת נועדה לאפשר לסטודנטים לנהל את הלמידה שלהם בצורה עצמאית ומסודרת.  
+המשתמש יכול להזין משימות לפי נושאי לימוד, לבחור את שיטת הלמידה המתאימה לו (סיכומים, מצגות, וידאו, תרגולים), להגדיר תאריך יעד ולהזין את אחוז ההתקדמות.  
+המשימות נשמרות לפי משתמש דרך Firebase, כך שכל משתמש רואה רק את המשימות האישיות שלו.  
+בנוסף, ניתן לסנן משימות לפי תאריך או נושא, להציג רק את אלו שעדיין לא הושלמו, ולמחוק משימות בלחיצה.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## פיצ'רים עיקריים
+
+טופס הוספת משימות עם נושא, שיטת למידה, יעד סיום ומצב התקדמות 
+הצגת המשימות בטבלה מסודרת עם bar התקדמות  
+סינון לפי תאריך או נושא לימוד  
+הצגת משימות בתהליך בלבד (שטרם הושלמו)  
+מחיקת משימות  
+שמירה לפי משתמש בעזרת Firebase (כולל התחברות)  
+עיצוב רספונסיבי מותאם לדסקטופ ולנייד
+
+---
+
+## הוראות התקנה והרצה מקומית
+
+כדי להתקין ולהריץ את הפרויקט במחשב , בצע את השלבים הבאים:
+
+1. ודא ש־Node.js מותקן במחשב . ניתן להוריד אותו מהאתר הרשמי: https://nodejs.org
+
+2. פתח את שורת הפקודה (CMD או טרמינל VS Code) ועבור לתיקיית הפרויקט.
+
+3. הפעל את הפקודה הבאה כדי לשכפל את הריפו מגיטהאב:
+
+git clone https://github.com/Elram-Habani/REACT-Final-Submission.git  
+cd REACT-Final-Submission
+
+4. התקנת את כל החבילות הדרושות על ידי הרצת הפקודה:
+
+npm install
+
+
+5. כעת הרצת את הפרויקט באמצעות הפקודה:
+
+npm run dev
+
+6. לאחר ההרצה, נפתח את הדפדפן ועבור לכתובת:
+
+http://localhost:5173
+
+
+## הערות נוספות
+
+הפרויקט נבנה באמצעות React עם Vite  
+המערכת משתמשת ב־Firebase לאימות משתמשים (Authentication) ואחסון משימות ב־Firestore  
+הקוד כתוב בגישה רספונסיבית ומותאם גם למסכים קטנים  
+כל הנתונים נשמרים לפי מזהה משתמש (`uid`)  
+הפרויקט עושה שימוש ב־React Router לניהול ניווט בין דפי המערכת
